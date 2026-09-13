@@ -3,17 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a1128;
-  --fg: #f5f3f0;
-  --card: rgba(255, 255, 255, 0.04);
-  --border: rgba(245, 243, 240, 0.12);
-}
-
-html.light {
-  --bg: #f5f3f0;
-  --fg: #1a1a1a;
-  --card: rgba(10, 17, 40, 0.04);
-  --border: rgba(10, 17, 40, 0.12);
+  --bg: #050607;
+  --fg: #f5f5f2;
+  --muted: rgba(255, 255, 255, 0.68);
+  --panel: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.12);
 }
 
 html {
@@ -21,10 +15,12 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(180deg, #050607 0%, #0a0b0d 34%, #050607 100%);
   color: var(--fg);
-  transition: background-color 0.5s ease, color 0.5s ease;
   overflow-x: hidden;
+  letter-spacing: -0.02em;
 }
 
 .section-shell {
@@ -40,19 +36,34 @@ body {
 }
 
 ::selection {
-  background: #c2a878;
-  color: #0a1128;
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
 
 .glass {
-  background: var(--card);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--border);
+}
+
+.premium-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 90px -45px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.eyebrow {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .text-gradient {
-  background: linear-gradient(120deg, #c2a878 0%, #e07a5f 60%, #c2a878 100%);
+  background: linear-gradient(120deg, #ffffff 0%, rgba(255, 255, 255, 0.72) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -72,21 +83,13 @@ body {
     border-color 0.5s ease;
 }
 .card-lift:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 24px 60px -20px rgba(194, 168, 120, 0.25);
-  border-color: rgba(194, 168, 120, 0.5);
-}
-
-.btn-glow {
-  transition: box-shadow 0.4s ease, transform 0.3s ease;
-}
-.btn-glow:hover {
-  box-shadow: 0 0 24px rgba(37, 211, 102, 0.45);
-  transform: translateY(-1px);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 54px -30px rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 :focus-visible {
-  outline: 2px solid #c2a878;
+  outline: 2px solid rgba(255, 255, 255, 0.75);
   outline-offset: 3px;
 }
 

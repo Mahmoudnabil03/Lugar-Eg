@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Manrope, Cormorant_Garamond, Tajawal } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const ibmArabic = IBM_Plex_Sans_Arabic({
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+});
+
+const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-ibm-arabic",
+  weight: ["300", "400", "500", "700", "800"],
+  variable: "--font-tajawal",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl" className="dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${ibmArabic.variable} font-arabic antialiased bg-navy text-offwhite`}
+        className={`${manrope.variable} ${cormorant.variable} ${tajawal.variable} font-arabic antialiased bg-navy text-offwhite`}
       >
         <LanguageProvider>{children}</LanguageProvider>
       </body>

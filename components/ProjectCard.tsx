@@ -15,42 +15,41 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
   return (
     <article
-      className={`project-card glass card-lift rounded-3xl p-7 flex flex-col justify-between min-h-[16rem] ${spanClass} ${
+      className={`project-card card-lift flex min-h-[18rem] flex-col justify-between rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] p-6 ${spanClass} ${
         index % 3 === 1 ? "md:translate-y-6" : ""
       }`}
       aria-label={project.title[lang]}
     >
       <div>
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <span className="text-[0.65rem] tracking-[0.25em] uppercase text-sand">
+        <div className="mb-5 flex items-start justify-between gap-3">
+          <span className="text-[0.6rem] font-medium uppercase tracking-[0.22em] text-white/55">
             {String(index + 1).padStart(2, "0")} — {project.type[lang]}
           </span>
           {project.featured && (
-            <span className="text-[0.65rem] rounded-full border border-terracotta/60 text-terracotta px-3 py-1">
+            <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[0.58rem] font-medium uppercase tracking-[0.18em] text-white/80">
               {t("مميز", "Featured")}
             </span>
           )}
         </div>
-        <h3 className="text-xl md:text-2xl font-bold leading-snug mb-2">
+
+        <h3 className="mb-2 text-xl font-semibold tracking-[-0.04em] text-white md:text-2xl">
           {project.title[lang]}
         </h3>
-        <p className="text-sm opacity-60 mb-1">{project.location[lang]}</p>
-        {project.priceNote && (
-          <p className="text-xs opacity-50">{project.priceNote[lang]}</p>
-        )}
+        <p className="mb-1 text-sm text-white/60">{project.location[lang]}</p>
+        {project.priceNote && <p className="text-xs text-white/45">{project.priceNote[lang]}</p>}
       </div>
 
-      <div className="mt-6 flex items-end justify-between gap-4 flex-wrap">
-        <p className="text-lg md:text-xl font-semibold text-sand">{project.price}</p>
+      <div className="mt-7 flex flex-wrap items-end justify-between gap-4">
+        <p className="text-lg font-semibold text-white md:text-xl">{project.price}</p>
         <a
           href={whatsappLink(project, lang)}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-glow inline-flex items-center gap-2 rounded-full bg-[#25D366]/15 border border-[#25D366]/40 text-[#25D366] px-5 py-2.5 text-sm font-semibold"
+          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white transition hover:border-white/35 hover:bg-white/10"
           aria-label={`${t("تواصل عبر واتساب بخصوص", "WhatsApp inquiry about")} ${project.title[lang]}`}
         >
           <WhatsAppIcon />
-          {t("تواصل عبر واتساب", "WhatsApp Inquiry")}
+          {t("واتساب", "WhatsApp")}
         </a>
       </div>
     </article>
