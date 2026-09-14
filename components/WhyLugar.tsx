@@ -135,7 +135,7 @@ export function WhyLugar() {
             >
               <div className="grid lg:grid-cols-2 gap-0 items-center">
                 {/* Visual Side */}
-                <div className="relative min-h-[300px] lg:min-h-[350px] bg-gradient-to-br from-neutral-900/50 via-neutral-800/50 to-neutral-900/50">
+                <div className="on-media relative min-h-[300px] lg:min-h-[350px] bg-gradient-to-br from-neutral-900/50 via-neutral-800/50 to-neutral-900/50">
                   {/* Pattern Overlay */}
                   <div className="absolute inset-0 opacity-5" style={{ 
                     backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-30 0V0h-2v4h-4v2h4v4h2v-4h4v-2h-4z\' fill=\'%23ffffff\'/%3E%3C/g%3E%3C/svg%3E")' 

@@ -280,7 +280,7 @@ export default function HeroSection() {
           <div className="relative hero-featured">
             <div className="glass-card rounded-2xl overflow-hidden relative">
               {/* Property Image Placeholder */}
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
+              <div className="on-media relative aspect-[4/3] bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
                 {/* Property Badge */}

@@ -739,3 +739,34 @@
     .cq-md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 }
+
+/* ========================================
+   LIGHT MODE — remap of hardcoded dark-first
+   white/black utilities used across components.
+   Unlayered on purpose: unlayered styles win over
+   Tailwind's layered utilities without !important.
+   Alpha variants use color-mix to preserve the
+   same visual hierarchy on light backgrounds.
+   ======================================== */
+.light .text-white { color: var(--fg-primary); }
+.light .text-white\/80 { color: color-mix(in srgb, var(--fg-primary) 80%, transparent); }
+.light .text-white\/70 { color: color-mix(in srgb, var(--fg-primary) 70%, transparent); }
+.light .text-white\/60 { color: color-mix(in srgb, var(--fg-primary) 60%, transparent); }
+.light .text-white\/50 { color: color-mix(in srgb, var(--fg-primary) 50%, transparent); }
+.light .text-white\/40 { color: color-mix(in srgb, var(--fg-primary) 42%, transparent); }
+.light .text-white\/20 { color: color-mix(in srgb, var(--fg-primary) 22%, transparent); }
+.light .hover\:text-white:hover { color: var(--fg-primary); }
+.light .placeholder\:text-white\/40::placeholder { color: color-mix(in srgb, var(--fg-primary) 42%, transparent); }
+
+.light .bg-white\/5 { background-color: color-mix(in srgb, var(--fg-primary) 5%, transparent); }
+.light .bg-white\/10 { background-color: color-mix(in srgb, var(--fg-primary) 10%, transparent); }
+.light .hover\:bg-white\/5:hover { background-color: color-mix(in srgb, var(--fg-primary) 8%, transparent); }
+.light .hover\:bg-white\/10:hover { background-color: color-mix(in srgb, var(--fg-primary) 12%, transparent); }
+
+.light .border-white\/10 { border-color: color-mix(in srgb, var(--fg-primary) 12%, transparent); }
+
+/* Text sitting directly on dark imagery/overlays must stay
+   white in both modes (badges, scrims, photo placeholders). */
+.light .on-media [class*="text-white"] { color: #fff; }
+.light .on-media [class*="hover:text-white"]:hover { color: #fff; }
+.light .on-media [class*="placeholder:text-white"]::placeholder { color: rgb(255 255 255 / 0.5); }

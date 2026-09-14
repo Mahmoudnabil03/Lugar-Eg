@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       aria-label={project.title[lang]}
     >
       {/* Image/Visual Area */}
-      <div className="relative aspect-video mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 via-neutral-900 to-neutral-800">
+      <div className="on-media relative aspect-video mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 via-neutral-900 to-neutral-800">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Property Type Badge */}
