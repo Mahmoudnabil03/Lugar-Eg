@@ -122,7 +122,7 @@ export function InvestmentProcess() {
   }, []);
 
   return (
-    <section ref={root} className="section bg-gradient-radial bg-noise relative" aria-label={t("عملية الاستثمار", "Investment Process")}>
+    <section ref={root} id="process" className="section bg-gradient-radial bg-noise relative" aria-label={t("عملية الاستثمار", "Investment Process")}>
       <div className="container">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
@@ -146,97 +146,83 @@ export function InvestmentProcess() {
           <div className="process-line absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-brand-500/30 to-transparent -translate-x-1/2 hidden lg:block" />
           
           <div className="space-y-8 lg:space-y-12">
-            {process.map((item, index) => (
+            {process.map((item, index) => {
+              const cardOnLeft = index % 2 === 0;
+              return (
               <article
                 key={item.step}
                 className="process-step relative"
               >
                 <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-8 items-start">
-                  {/* Left Side - Content for odd, empty for even */}
-                  <div className={index % 2 === 0 ? 'lg:order-1 lg:text-right pr-8 lg:pr-12' : 'lg:order-3 lg:text-left pl-8 lg:pl-12'}>
-                    <div className="glass-card rounded-2xl p-6 lg:p-8 group relative overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent group-hover:opacity-100 transition-opacity" />
-                      
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl glass flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 accent-text">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-3">
-                            <span className="badge badge-primary">{item.step}</span>
+                  {/* Left column: card on even steps, spacer on odd */}
+                  <div className="lg:order-1">
+                    {cardOnLeft ? (
+                      <div className="glass-card rounded-2xl p-6 lg:p-8 group relative overflow-hidden">
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent group-hover:opacity-100 transition-opacity" />
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl glass flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 accent-text">
+                            {item.icon}
                           </div>
-                          <h3 className="heading-4 text-white mb-2">
-                            {t(item.titleAr, item.titleEn)}
-                          </h3>
-                          <p className="body-sm text-white/70">
-                            {t(item.descAr, item.descEn)}
-                          </p>
+                          <div>
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="badge badge-primary">{item.step}</span>
+                            </div>
+                            <h3 className="heading-4 text-white mb-2">
+                              {t(item.titleAr, item.titleEn)}
+                            </h3>
+                            <p className="body-sm text-white/70">
+                              {t(item.descAr, item.descEn)}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ) : null}
                   </div>
 
                   {/* Center - Step Indicator */}
-                  <div className="hidden lg:block lg:order-2 flex flex-col items-center z-10">
+                  <div className="hidden lg:flex lg:order-2 flex-col items-center z-10">
                     <div className="relative">
                       {/* Circle with number */}
                       <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full glass flex items-center justify-center relative z-10 border-2 border-brand-500/30 shadow-xl shadow-brand-500/10">
                         <span className="text-2xl lg:text-3xl font-black text-white">{item.step}</span>
                       </div>
-                      
+
                       {/* Pulse Ring */}
                       <div className="absolute inset-0 rounded-full border-2 border-brand-500/30 animate-ping opacity-75" />
                     </div>
                   </div>
 
-                  {/* Right Side - Empty for odd, Content for even */}
-                  <div className={index % 2 === 0 ? 'lg:order-3 lg:text-left pl-8 lg:pl-12' : 'lg:order-1 lg:text-right pr-8 lg:pr-12'}>
-                    <div className={index % 2 === 1 ? 'glass-card rounded-2xl p-6 lg:p-8 group relative overflow-hidden' : 'hidden lg:block'}>
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent group-hover:opacity-100 transition-opacity" />
-                      
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl glass flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 accent-text">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-3">
-                            <span className="badge badge-primary">{item.step}</span>
+                  {/* Right column: card on odd steps, spacer on even */}
+                  <div className="lg:order-3">
+                    {!cardOnLeft ? (
+                      <div className="glass-card rounded-2xl p-6 lg:p-8 group relative overflow-hidden">
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent group-hover:opacity-100 transition-opacity" />
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl glass flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 accent-text">
+                            {item.icon}
                           </div>
-                          <h3 className="heading-4 text-white mb-2">
-                            {t(item.titleAr, item.titleEn)}
-                          </h3>
-                          <p className="body-sm text-white/70">
-                            {t(item.descAr, item.descEn)}
-                          </p>
+                          <div>
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="badge badge-primary">{item.step}</span>
+                            </div>
+                            <h3 className="heading-4 text-white mb-2">
+                              {t(item.titleAr, item.titleEn)}
+                            </h3>
+                            <p className="body-sm text-white/70">
+                              {t(item.descAr, item.descEn)}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ) : null}
                   </div>
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Mobile Steps - Simple List */}
-        <div className="lg:hidden space-y-4 mt-8">
-          {process.map((item, index) => (
-            <div key={item.step} className="glass-card rounded-xl p-5 animate-fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg glass flex items-center justify-center flex-shrink-0 accent-text">
-                  {item.icon}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="badge badge-primary">{item.step}</span>
-                    <h3 className="heading-4 text-white mb-0">{t(item.titleAr, item.titleEn)}</h3>
-                  </div>
-                  <p className="body-sm text-white/70">{t(item.descAr, item.descEn)}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -42,9 +42,6 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     type: "website",
   },
-  alternates: {
-    languages: { ar: "/ar", en: "/en" },
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

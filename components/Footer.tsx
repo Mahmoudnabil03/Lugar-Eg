@@ -83,11 +83,9 @@ export default function Footer() {
             <a href="#main" className="inline-flex items-center gap-3" aria-label="Lugar Real Estate - Home">
               <img
                 src="/lugar-logo.svg"
-                alt=""
-                className="h-10 w-auto object-contain"
-                aria-hidden="true"
+                alt="Lugar Real Estate"
+                className="h-12 w-auto object-contain"
               />
-              <span className="font-black text-xl lg:text-2xl text-white tracking-tight">Lugar</span>
             </a>
             
             <p className="body text-white/60 max-w-xs">
