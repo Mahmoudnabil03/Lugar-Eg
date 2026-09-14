@@ -3,11 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --bg: #050607;
-  --fg: #f5f5f2;
-  --muted: rgba(255, 255, 255, 0.68);
-  --panel: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.12);
+  --bg-dark: #050607;
+  --fg-dark: #f5f5f2;
+  --muted-dark: rgba(255, 255, 255, 0.68);
+  --panel-dark: rgba(255, 255, 255, 0.04);
+  --border-dark: rgba(255, 255, 255, 0.12);
+
+  --bg-light: #fafafa;
+  --fg-light: #111315;
+  --muted-light: rgba(17, 19, 21, 0.68);
+  --panel-light: rgba(17, 19, 21, 0.04);
+  --border-light: rgba(17, 19, 21, 0.12);
 }
 
 html {
@@ -18,9 +24,24 @@ body {
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 28%),
     linear-gradient(180deg, #050607 0%, #0a0b0d 34%, #050607 100%);
-  color: var(--fg);
+  color: var(--fg-dark);
   overflow-x: hidden;
   letter-spacing: -0.02em;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+html.light body {
+  background:
+    radial-gradient(circle at top, rgba(0, 0, 0, 0.04), transparent 28%),
+    linear-gradient(180deg, #fafafa 0%, #f0f0f0 34%, #fafafa 100%);
+  color: var(--fg-light);
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(180deg, #050607 0%, #0a0b0d 34%, #050607 100%);
+  color: var(--fg-dark);
 }
 
 .section-shell {
@@ -41,29 +62,58 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--panel);
+  border: 1px solid var(--border);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
 
-.premium-panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+html.dark .glass {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.light .glass {
+  background: rgba(17, 19, 21, 0.03);
+  border: 1px solid rgba(17, 19, 21, 0.08);
+}
+
+.premium-panel {
+  background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--border);
   box-shadow: 0 25px 90px -45px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+html.dark .premium-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 90px -45px rgba(0, 0, 0, 0.8);
+}
+
+html.light .premium-panel {
+  background: linear-gradient(180deg, rgba(17, 19, 21, 0.05), rgba(17, 19, 21, 0.02));
+  border: 1px solid rgba(17, 19, 21, 0.08);
+  box-shadow: 0 25px 90px -45px rgba(0, 0, 0, 0.1);
 }
 
 .eyebrow {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
 }
 
 .text-gradient {
   background: linear-gradient(120deg, #ffffff 0%, rgba(255, 255, 255, 0.72) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html.light .text-gradient {
+  background: linear-gradient(120deg, #111315 0%, rgba(17, 19, 21, 0.72) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -78,6 +128,10 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+html.light .hero-grain::after {
+  opacity: 0.03;
+}
+
 .card-lift {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease,
     border-color 0.5s ease;
@@ -88,9 +142,18 @@ body {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
+html.light .card-lift:hover {
+  box-shadow: 0 22px 54px -30px rgba(0, 0, 0, 0.15);
+  border-color: rgba(17, 19, 21, 0.18);
+}
+
 :focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.75);
   outline-offset: 3px;
+}
+
+html.light :focus-visible {
+  outline: 2px solid rgba(17, 19, 21, 0.75);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -100,4 +163,9 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Theme transition for smooth switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

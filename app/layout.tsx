@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Cormorant_Garamond, Tajawal } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -48,11 +49,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className="dark" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${cormorant.variable} ${tajawal.variable} font-arabic antialiased bg-navy text-offwhite`}
+        className={`${manrope.variable} ${cormorant.variable} ${tajawal.variable} font-arabic antialiased`}
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="relative mt-10 border-t border-white/10 py-16">
       <div className="section-shell grid gap-12 md:grid-cols-3">
         <div>
-          <img src="/logo-white.png" alt="Lugar Real Estate logo" className="mb-4 h-12 w-auto object-contain md:h-14" />
+          <img src="/lugar-logo.svg" alt="Lugar Real Estate logo" className="mb-4 h-14 w-auto object-contain md:h-16" />
           <p className="max-w-xs text-sm leading-7 text-white/60">
             {t(
               "لوجار للتسويق والاستثمار العقاري — شريكك الموثوق في الاستثمار العقاري في مصر.",

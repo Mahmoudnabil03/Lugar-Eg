@@ -112,11 +112,20 @@ export default function HeroSection() {
                 {t("تحدث معنا", "Contact us")}
               </a>
             </div>
+            
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="text-sm leading-7 text-white/60">
+                {t(
+                  "نجمع بين الخبرة المحلية العميقة والمنظور الاستثماري العالمي لنقدم لك فرصاً عقارية مختارة بعناية.",
+                  "We combine deep local expertise with a global investment perspective to deliver carefully curated real estate opportunities."
+                )}
+              </p>
+            </div>
           </div>
 
           <div className="hero-panel flex min-h-[300px] flex-col justify-center rounded-[22px] border border-white/10 bg-[#0b0d10]/80 p-6 lg:min-h-[640px] lg:p-8">
-            <div className="mb-5 flex items-center">
-              <img src="/logo-white.png" alt="Lugar Real Estate" className="h-12 w-auto object-contain md:h-16" />
+<div className="mb-5 flex items-center">
+              <img src="/lugar-logo.svg" alt="Lugar Real Estate" className="h-16 w-auto object-contain md:h-20" />
             </div>
             <p className="hero-copy mb-4 text-[0.68rem] font-medium uppercase tracking-[0.32em] text-white/60">
               {t("مرحباً بكم في لوجار", "Welcome to Lugar")}
@@ -204,7 +213,7 @@ export default function HeroSection() {
           <div className="hero-panel relative flex min-h-[300px] flex-col justify-between rounded-[22px] border border-white/10 bg-[#111315]/90 p-6 lg:min-h-[640px] lg:p-8">
             <div className="text-left">
               <div className="text-[0.66rem] font-medium tracking-[0.28em] uppercase text-white/60">
-                {t("حافظة الاستثمار", "Investment focus")}
+                {t("فرصة الاستثمار المميزة", "Featured Investment")}
               </div>
               <div className="mt-5 text-[clamp(2.2rem,3vw,4rem)] font-black leading-[0.9] tracking-[-0.06em] text-white">
                 {t("221 م²", "221 m²")}
@@ -230,6 +239,23 @@ export default function HeroSection() {
                 <span>{t("تواصل عبر واتساب", "Contact via WhatsApp")}</span>
                 <span aria-hidden="true">✦</span>
               </a>
+            </div>
+            
+            <div className="border-t border-white/10 pt-6 mt-8">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-black text-white">8.5%</div>
+                  <div className="text-xs uppercase tracking-[0.2em] text-white/50">{t("العائد المتوقع", "Expected Yield")}</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-white">12%</div>
+                  <div className="text-xs uppercase tracking-[0.2em] text-white/50">{t("النمو السنوي", "Annual Growth")}</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-white">5</div>
+                  <div className="text-xs uppercase tracking-[0.2em] text-white/50">{t("سنوات الاسترداد", "Payback Years")}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
