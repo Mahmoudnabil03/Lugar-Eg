@@ -96,7 +96,7 @@ export default function Chatbot() {
   return (
     <div className="fixed bottom-6 end-6 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="glass-card rounded-2xl w-[calc(100vw-3rem)] max-w-sm overflow-hidden animate-scale-in">
+        <div className="surface-elevated rounded-2xl w-[calc(100vw-3rem)] max-w-sm overflow-hidden animate-scale-in shadow-2xl">
           <div className="flex items-center justify-between p-4 border-b border-white/10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center font-black text-white">L</div>
