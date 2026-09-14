@@ -44,13 +44,9 @@ export default function Navbar() {
         >
           <img
             src="/lugar-logo.svg"
-            alt=""
+            alt="Lugar Real Estate"
             className="h-10 lg:h-12 w-auto object-contain"
-            aria-hidden="true"
           />
-          <span className="hidden sm:block font-black text-xl lg:text-2xl text-white tracking-tight">
-            Lugar
-          </span>
         </a>
 
         {/* Desktop Navigation */}

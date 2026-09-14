@@ -42,6 +42,7 @@ const config: Config = {
         manrope: ["var(--font-manrope)", "system-ui", "sans-serif"],
         cormorant: ["var(--font-cormorant)", "Georgia", "serif"],
         tajawal: ["var(--font-tajawal)", "sans-serif"],
+        arabic: ["var(--font-tajawal)", "sans-serif"],
         sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
       },
       animation: {
