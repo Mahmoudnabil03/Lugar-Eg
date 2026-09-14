@@ -8,10 +8,10 @@ import { useLang } from "@/lib/i18n";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: "120M+", labelKey: "portfolio_exposure", labelEn: "Portfolio Exposure Tracked", labelAr: "محفظة استثمارية مُتتبعة" },
-  { value: "18+", labelKey: "opportunities", labelEn: "High-Potential Opportunities", labelAr: "فرص عالية الإمكانات" },
-  { value: "5", labelKey: "step_framework", labelEn: "Step Advisory Framework", labelAr: "خطوات إطار استشاري" },
-  { value: "24/7", labelKey: "client_access", labelEn: "Client Access & Support", labelAr: "وصول ودعم للعملاء" },
+  { value: "120M+", labelKey: "portfolio_exposure", labelEn: "Portfolio Managed", labelAr: "محفظة مُدارة" },
+  { value: "18+", labelKey: "opportunities", labelEn: "Active Opportunities", labelAr: "فرص نشطة" },
+  { value: "98%", labelKey: "satisfaction", labelEn: "Client Satisfaction", labelAr: "رضا العملاء" },
+  { value: "24/7", labelKey: "support", labelEn: "Dedicated Support", labelAr: "دعم مخصص" },
 ];
 
 export function StatsSection() {
@@ -28,7 +28,7 @@ export function StatsSection() {
         ease: "power3.out",
         scrollTrigger: { trigger: root.current, start: "top 80%" },
       });
-      
+
       gsap.from(".stat-value", {
         textContent: 0,
         duration: 1.5,
@@ -42,30 +42,41 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={root} className="section-shell pb-20 md:pb-28" aria-label={t("إحصائيات", "Statistics")}>
-      <div className="premium-panel overflow-hidden rounded-[32px] p-6 md:p-8 lg:p-10">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p className="eyebrow">{t("أرقامنا", "Our Numbers")}</p>
-            <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-              {t("سجل حافل من النجاحات", "A Track Record of Success")}
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-white/70">
-              {t(
-                "أرقامنا تعكس التزامنا بالتميز والشراكة طويلة الأمد مع مستثمرينا.",
-                "Our numbers reflect our commitment to excellence and long-term partnership with our investors."
-              )}
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {stats.map((stat) => (
-              <div key={stat.value} className="stat-card rounded-[24px] border border-white/10 bg-white/5 p-5">
-                <div className="stat-value text-3xl font-semibold text-white">{stat.value}</div>
-                <p className="mt-2 text-sm text-white/65">{t(stat.labelAr, stat.labelEn)}</p>
+    <section ref={root} className="section bg-gradient-radial bg-noise" aria-label={t("إحصائيات", "Statistics")}>
+      <div className="container">
+        {/* Decorative Top Divider */}
+        <div className="divider mb-12 mx-auto max-w-md" />
+        
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          {stats.map((stat, index) => (
+            <article
+              key={stat.value}
+              className="stat-card glass-card rounded-2xl p-6 lg:p-8 text-center relative overflow-hidden group"
+            >
+              {/* Background Accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Top Border */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent group-hover:w-24 transition-all duration-300" />
+              
+              <div className="relative z-10">
+                <div className="stat-value heading-1 font-bold gradient-accent mb-2" style={{ fontFamily: 'var(--font-manrope)' }}>
+                  {stat.value}
+                </div>
+                <p className="caption text-white/60">{t(stat.labelAr, stat.labelEn)}</p>
               </div>
-            ))}
-          </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Context Text */}
+        <div className="text-center mt-16 animate-fade-up">
+          <p className="body text-white/50 max-w-2xl mx-auto">
+            {t(
+              "أرقامنا تعكس التزامنا بالتميز والشراكة طويلة الأمد مع مستثمرينا في السوق المصري.",
+              "Our numbers reflect our commitment to excellence and long-term partnership with our investors in the Egyptian market."
+            )}
+          </p>
         </div>
       </div>
     </section>

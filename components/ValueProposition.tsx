@@ -72,8 +72,17 @@ export function ValueProposition() {
         opacity: 0,
         y: 40,
         duration: 0.8,
-        stagger: 0.12,
+        stagger: 0.1,
         ease: "power3.out",
+        scrollTrigger: { trigger: root.current, start: "top 80%" },
+      });
+      
+      gsap.from(".value-icon", {
+        scale: 0,
+        rotation: -180,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "back.out(1.7)",
         scrollTrigger: { trigger: root.current, start: "top 80%" },
       });
     }, root);
@@ -81,38 +90,59 @@ export function ValueProposition() {
   }, []);
 
   return (
-    <section ref={root} className="section-shell py-20 md:py-28" aria-label={t("عرض القيمة", "Value Proposition")}>
-      <div className="mb-16 max-w-3xl">
-        <p className="eyebrow">{t("لماذا لوجار", "Why Lugar")}</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-          {t("شريكك الاستراتيجي في العقارات", "Your Strategic Real Estate Partner")}
-        </h2>
-        <p className="mt-6 text-base leading-8 text-white/70">
-          {t(
-            "نجمع بين الخبرة المحلية العميقة، تحليل البيانات، وشبكة علاقات متميزة لنقدم لك فرصاً استثمارية مختارة بعناية.",
-            "We combine deep local expertise, data-driven analysis, and an elite network to deliver carefully curated investment opportunities."
-          )}
-        </p>
-      </div>
+    <section ref={root} className="section bg-gradient-radial bg-noise" aria-label={t("عرض القيمة", "Value Proposition")}>
+      <div className="container">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <span className="eyebrow accent-text justify-center animate-fade-up">
+            {t("لماذا لوجار", "Why Lugar")}
+          </span>
+          <h2 className="heading-2 mt-4 animate-fade-up stagger-1 gradient-text">
+            {t("شريكك الاستراتيجي في العقارات", "Your Strategic Real Estate Partner")}
+          </h2>
+          <p className="body-lg mt-6 animate-fade-up stagger-2">
+            {t(
+              "نجمع بين الخبرة المحلية العميقة، تحليل البيانات المتقدم، وشبكة علاقات متميزة لنقدم لك فرصاً استثمارية مختارة بعناية.",
+              "We combine deep local expertise, advanced data analysis, and an elite network to deliver carefully curated investment opportunities."
+            )}
+          </p>
+        </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {valueProps.map((item, index) => (
-          <div
-            key={item.titleKey}
-            className="value-card premium-panel card-lift rounded-[28px] p-6 md:p-7"
-            style={{ "--card-index": index } as React.CSSProperties}
-          >
-            <div className="mb-5 h-12 w-12 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center">
-              {item.icon}
-            </div>
-            <h3 className="mb-3 text-xl font-semibold text-white">
-              {t(item.titleAr, item.titleEn)}
-            </h3>
-            <p className="text-sm leading-7 text-white/70">
-              {t(item.descAr, item.descEn)}
-            </p>
-          </div>
-        ))}
+        {/* Value Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {valueProps.map((item, index) => (
+            <article
+              key={item.titleKey}
+              className="value-card glass-card rounded-2xl p-6 lg:p-8 group relative overflow-hidden"
+              style={{ '--card-index': index } as React.CSSProperties}
+            >
+              {/* Top Accent Line */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent group-hover:opacity-100 transition-opacity" />
+              
+              {/* Icon Wrapper */}
+              <div className="value-icon relative mb-6 animate-scale-in stagger-1">
+                <div className="w-14 h-14 rounded-xl glass flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span className="accent-text">{item.icon}</span>
+                </div>
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-brand-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+
+              {/* Title */}
+              <h3 className="heading-4 text-white mb-3 animate-fade-up stagger-2">
+                {t(item.titleAr, item.titleEn)}
+              </h3>
+
+              {/* Description */}
+              <p className="body-sm text-white/70 animate-fade-up stagger-3">
+                {t(item.descAr, item.descEn)}
+              </p>
+
+              {/* Hover Indicator */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500 to-brand-600 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
