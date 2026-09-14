@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProjectGrid from "@/components/ProjectGrid";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 import { ValueProposition } from "@/components/ValueProposition";
 import { InvestmentProcess } from "@/components/InvestmentProcess";
 import { WhyLugar } from "@/components/WhyLugar";
@@ -22,6 +23,7 @@ export default function Home() {
         <ProjectGrid />
       </main>
       <Footer />
+      <Chatbot />
     </>
   );
 }

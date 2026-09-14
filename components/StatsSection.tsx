@@ -45,7 +45,7 @@ export function StatsSection() {
     <section ref={root} className="section bg-gradient-radial bg-noise" aria-label={t("إحصائيات", "Statistics")}>
       <div className="container">
         {/* Decorative Top Divider */}
-        <div className="divider mb-12 mx-auto max-w-md" />
+        <div className="divider mb-8 mx-auto max-w-md" />
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {stats.map((stat, index) => (
@@ -70,7 +70,7 @@ export function StatsSection() {
         </div>
 
         {/* Context Text */}
-        <div className="text-center mt-16 animate-fade-up">
+        <div className="text-center mt-10 animate-fade-up">
           <p className="body text-white/50 max-w-2xl mx-auto">
             {t(
               "أرقامنا تعكس التزامنا بالتميز والشراكة طويلة الأمد مع مستثمرينا في السوق المصري.",

@@ -63,7 +63,7 @@ export function CTASection() {
           <div className="absolute inset-0 border-2 border-brand-500/20 rounded-3xl pointer-events-none" />
 
           {/* Content */}
-          <div className="relative z-10 p-8 lg:p-16 text-center lg:p-20">
+          <div className="relative z-10 p-6 lg:p-12 text-center">
             {/* Badge */}
             <div className="cta-badge inline-flex items-center gap-2 mb-6">
               <span className="relative">

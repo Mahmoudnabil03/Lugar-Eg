@@ -3,6 +3,7 @@ import { Manrope, Cormorant_Garamond, Tajawal } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AuthProvider } from "@/lib/auth";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -54,7 +55,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <AuthProvider>
+            <LanguageProvider>{children}</LanguageProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

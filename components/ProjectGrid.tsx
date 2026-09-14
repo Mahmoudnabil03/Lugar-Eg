@@ -96,7 +96,7 @@ export default function ProjectGrid() {
     <section ref={root} id="projects" className="section bg-gradient-radial bg-noise" aria-label={t("المشاريع", "Projects")}>
       <div className="container">
         {/* Section Header */}
-        <div className="grid-heading mb-12 lg:mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div className="grid-heading mb-8 lg:mb-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div>
             <span className="eyebrow accent-text mb-4 inline-flex">
               {t("المشاريع", "Projects")}

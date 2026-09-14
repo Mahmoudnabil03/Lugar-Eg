@@ -149,7 +149,7 @@ export default function HeroSection() {
   return (
     <section
       ref={root}
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-radial bg-noise"
+      className="relative min-h-[92svh] flex items-center overflow-hidden bg-gradient-radial bg-noise"
       aria-label={t("القسم الرئيسي", "Hero")}
     >
       {/* Animated Background Orbs */}
@@ -165,7 +165,7 @@ export default function HeroSection() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent" />
       </div>
 
-      <div className="container relative z-10 w-full py-20 lg:py-32">
+      <div className="container relative z-10 w-full py-14 lg:py-20">
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
           
           {/* Left Column - Content */}

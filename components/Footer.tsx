@@ -75,9 +75,9 @@ export default function Footer() {
       {/* Top Accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent" />
       
-      <div className="container py-16 lg:py-20">
+      <div className="container py-12 lg:py-14">
         {/* Main Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10 mb-10">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
             <a href="#main" className="inline-flex items-center gap-3" aria-label="Lugar Real Estate - Home">

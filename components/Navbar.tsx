@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { useTheme } from "./ThemeProvider";
+import { useAuth } from "@/lib/auth";
 
 export default function Navbar() {
   const { lang, toggleLang, t } = useLang();
   const { theme, toggleTheme } = useTheme();
+  const { user } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -99,6 +102,24 @@ export default function Navbar() {
             {lang === "ar" ? "EN" : "عربي"}
           </button>
 
+          {/* Account */}
+          {user ? (
+            <Link
+              href={user.role === "admin" ? "/admin" : user.role === "employee" ? "/timesheet" : "/"}
+              className="hidden sm:inline-flex items-center rounded-xl glass px-3 py-2 text-[0.68rem] font-semibold tracking-[0.12em] text-white/85 transition hover:bg-white/10"
+              title={user.email}
+            >
+              {user.role === "admin" ? t("الإدارة", "Admin") : user.role === "employee" ? t("دوامي", "My shift") : user.name.split(" ")[0]}
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="hidden sm:inline-flex items-center rounded-xl glass px-3 py-2 text-[0.68rem] font-semibold tracking-[0.12em] text-white/85 transition hover:bg-white/10"
+            >
+              {t("دخول", "Log in")}
+            </Link>
+          )}
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -148,7 +169,14 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-white/10 space-y-3">
+              <Link
+                href={user ? (user.role === "admin" ? "/admin" : user.role === "employee" ? "/timesheet" : "/") : "/login"}
+                onClick={() => setMobileOpen(false)}
+                className="btn btn-secondary w-full justify-center"
+              >
+                {user ? (user.role === "admin" ? t("لوحة الإدارة", "Admin panel") : user.role === "employee" ? t("صفحة الدوام", "Timesheet") : user.name) : t("تسجيل الدخول", "Log in")}
+              </Link>
               <a
                 href="https://wa.me/201028232191?text=Hello%2C%20I%20want%20to%20discuss%20real-estate%20investment%20opportunities"
                 target="_blank"

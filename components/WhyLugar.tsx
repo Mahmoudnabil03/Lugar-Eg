@@ -117,7 +117,7 @@ export function WhyLugar() {
     <section ref={root} id="trust" className="section bg-gradient-radial bg-noise" aria-label={t("لماذا لوجار", "Why Lugar")}>
       <div className="container">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 lg:mb-12">
           <span className="eyebrow accent-text justify-center animate-fade-up">
             {t("لماذا لوجار", "Why Lugar")}
           </span>
