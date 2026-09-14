@@ -15,11 +15,17 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
   return (
     <article
-      className={`project-card glass-card rounded-2xl p-6 lg:p-7 flex flex-col min-h-[380px] ${spanClass}`}
+      className={`project-card glass-card group rounded-2xl p-6 lg:p-7 flex flex-col min-h-[380px] ${spanClass}`}
       aria-label={project.title[lang]}
     >
       {/* Image/Visual Area */}
       <div className="on-media relative aspect-video mb-5 rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 via-neutral-900 to-neutral-800">
+        <img
+          src={project.image}
+          alt={project.imageAlt[lang]}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Property Type Badge */}

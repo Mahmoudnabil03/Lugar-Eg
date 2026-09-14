@@ -84,7 +84,12 @@ export default function Footer() {
               <img
                 src="/lugar-logo.svg"
                 alt="Lugar Real Estate"
-                className="h-12 w-auto object-contain"
+                className="logo-for-dark h-12 w-auto object-contain"
+              />
+              <img
+                src="/lugar-logo-dark.svg"
+                alt="Lugar Real Estate"
+                className="logo-for-light h-12 w-auto object-contain"
               />
             </a>
             

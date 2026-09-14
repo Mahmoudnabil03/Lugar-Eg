@@ -7,7 +7,12 @@ export type Project = {
   priceNote?: { ar: string; en: string };
   featured?: boolean;
   span?: "wide" | "tall" | "normal";
+  image: string;
+  imageAlt: { ar: string; en: string };
 };
+
+const px = (id: number, w = 1200) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
 export const WHATSAPP_NUMBER = "201028232191";
 
@@ -29,6 +34,8 @@ export const projects: Project[] = [
     priceNote: { ar: "وحدات تبدأ من 9.9 مليون حتى 27 مليون", en: "Units from EGP 9.9M to 27M" },
     featured: true,
     span: "wide",
+    image: px(26855250),
+    imageAlt: { ar: "مياه فيروزية على ساحل الساحل الشمالي", en: "Turquoise waters on the North Coast shore" },
   },
   {
     id: "sixth-settlement-apartment",
@@ -37,6 +44,8 @@ export const projects: Project[] = [
     type: { ar: "شقة بإطلالة لاندسكيب", en: "Apartment · Landscape View" },
     price: "على الطلب",
     span: "normal",
+    image: px(34308453),
+    imageAlt: { ar: "مجمع سكني حديث بحدائق منسقة", en: "Modern residential compound with landscaped gardens" },
   },
   {
     id: "cbd-office-21",
@@ -45,6 +54,8 @@ export const projects: Project[] = [
     type: { ar: "مكتب إداري", en: "Administrative Office" },
     price: "على الطلب",
     span: "normal",
+    image: px(26919760),
+    imageAlt: { ar: "برج حديث في القاهرة", en: "Modern high-rise tower in Cairo" },
   },
   {
     id: "artal-plato",
@@ -54,6 +65,8 @@ export const projects: Project[] = [
     price: "EGP 3,000,000",
     priceNote: { ar: "أسعار تبدأ من", en: "Starting from" },
     span: "tall",
+    image: px(6875479),
+    imageAlt: { ar: "منتجع حديث بفلل ومساحات خضراء", en: "Modern resort with villas and green landscapes" },
   },
   {
     id: "stride-north-90",
@@ -62,6 +75,8 @@ export const projects: Project[] = [
     type: { ar: "مشروع متعدد الاستخدامات", en: "Mixed-Use Project" },
     price: "على الطلب",
     span: "wide",
+    image: px(33463115),
+    imageAlt: { ar: "مبنى مكاتب زجاجي حديث", en: "Modern glass office building" },
   },
   {
     id: "vida-business-complex",
@@ -70,6 +85,8 @@ export const projects: Project[] = [
     type: { ar: "تجاري / إداري", en: "Commercial / Administrative" },
     price: "EGP 3,630,000",
     span: "normal",
+    image: px(38731741),
+    imageAlt: { ar: "مبنى إداري معاصر", en: "Contemporary office building" },
   },
   {
     id: "the-pause-office",
@@ -78,6 +95,8 @@ export const projects: Project[] = [
     type: { ar: "مكتب إداري", en: "Administrative Office" },
     price: "EGP 4,536,000",
     span: "normal",
+    image: px(34764216),
+    imageAlt: { ar: "مبنى مكاتب تحت سماء زرقاء", en: "Office building against a blue sky" },
   },
   {
     id: "ozohe-fifth-settlement",
@@ -87,6 +106,8 @@ export const projects: Project[] = [
     price: "EGP 48,125,000",
     featured: true,
     span: "tall",
+    image: px(12309396),
+    imageAlt: { ar: "فلل أنيقة بجانب البحر وقت الغروب", en: "Elegant seaside villas at sunset" },
   },
   {
     id: "nac-project",
@@ -95,5 +116,7 @@ export const projects: Project[] = [
     type: { ar: "فرصة استثمارية", en: "Investment Opportunity" },
     price: "على الطلب",
     span: "wide",
+    image: px(5609738),
+    imageAlt: { ar: "منظر جوي لأفق القاهرة الحديث", en: "Aerial view of Cairo's modern skyline" },
   },
 ];

@@ -279,10 +279,16 @@ export default function HeroSection() {
           {/* Right Column - Featured Property */}
           <div className="relative hero-featured">
             <div className="glass-card rounded-2xl overflow-hidden relative">
-              {/* Property Image Placeholder */}
+              {/* Property Image */}
               <div className="on-media relative aspect-[4/3] bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/26855250/pexels-photo-26855250.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt={t("مياه فيروزية على ساحل الساحل الشمالي", "Turquoise waters on the North Coast shore")}
+                  loading="eager"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
+
                 {/* Property Badge */}
                 <div className="absolute top-4 right-4">
                   <span className="badge badge-primary">
@@ -293,14 +299,9 @@ export default function HeroSection() {
                 {/* Property Type */}
                 <div className="absolute bottom-4 left-4">
                   <span className="badge badge-secondary backdrop-blur-sm">
-                    {t("منطقة الأعمال المركزية", "Central Business District")}
+                    {t("رأس الحكمة، الساحل الشمالي", "Ras El Hekma, North Coast")}
                   </span>
                 </div>
-
-                {/* Decorative Pattern */}
-                <div className="absolute inset-0 opacity-5" style={{ 
-                  backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-30 0V0h-2v4h-4v2h4v4h2v-4h4v-2h-4z\' fill=\'%23ffffff\'/%3E%3C/g%3E%3C/svg%3E")' 
-                }} />
               </div>
 
               {/* Property Details */}

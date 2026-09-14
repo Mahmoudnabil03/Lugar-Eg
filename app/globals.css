@@ -770,3 +770,8 @@
 .light .on-media [class*="text-white"] { color: #fff; }
 .light .on-media [class*="hover:text-white"]:hover { color: #fff; }
 .light .on-media [class*="placeholder:text-white"]::placeholder { color: rgb(255 255 255 / 0.5); }
+
+/* Theme-aware logo swap: white logo on dark, dark logo on light. */
+.logo-for-light { display: none; }
+.light .logo-for-light { display: block; }
+.light .logo-for-dark { display: none; }
