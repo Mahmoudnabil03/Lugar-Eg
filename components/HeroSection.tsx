@@ -154,9 +154,9 @@ export default function HeroSection() {
     >
       {/* Animated Background Orbs */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="hero-orb-1 absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-500/10 blur-[120px] animate-float" style={{ animationDelay: '0s' }} />
-        <div className="hero-orb-2 absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-brand-600/10 blur-[100px] animate-float" style={{ animationDelay: '-2s' }} />
-        <div className="hero-orb-3 absolute top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-brand-400/10 blur-[80px] animate-float" style={{ animationDelay: '-4s' }} />
+        <div className="hero-orb-1 absolute top-1/4 left-1/4 w-24 h-24 rounded-full bg-brand-500/10 blur-[80px] animate-float" style={{ animationDelay: '0s' }} />
+        <div className="hero-orb-2 absolute bottom-1/4 right-1/4 w-20 h-20 rounded-full bg-brand-600/10 blur-[70px] animate-float" style={{ animationDelay: '-2s' }} />
+        <div className="hero-orb-3 absolute top-1/2 left-1/2 w-16 h-16 rounded-full bg-brand-400/10 blur-[60px] animate-float" style={{ animationDelay: '-4s' }} />
         
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 grid-pattern opacity-30" />

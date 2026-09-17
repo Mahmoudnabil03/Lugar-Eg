@@ -15,7 +15,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
   return (
     <article
-      className={`project-card glass-card group rounded-2xl p-6 lg:p-7 flex flex-col min-h-[380px] ${spanClass}`}
+      className={`project-card glass-card group rounded-2xl p-6 lg:p-7 flex flex-col gap-4 ${spanClass}`}
       aria-label={project.title[lang]}
     >
       {/* Image/Visual Area */}
