@@ -96,7 +96,7 @@ export default function Chatbot() {
   return (
     <div className="fixed bottom-6 end-6 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="surface-elevated rounded-2xl w-[calc(100vw-3rem)] max-w-sm overflow-hidden animate-scale-in shadow-2xl">
+        <div className="surface-elevated rounded-2xl w-full max-w-sm mx-3 overflow-hidden animate-scale-in shadow-2xl">
           <div className="flex items-center justify-between p-4 border-b border-white/10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center font-black text-white">L</div>
@@ -107,7 +107,7 @@ export default function Chatbot() {
             </div>
             <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-white/50 hover:text-white text-xl leading-none px-2">×</button>
           </div>
-          <div className="h-72 overflow-y-auto p-4 space-y-3">
+          <div className="h-full overflow-y-auto p-4 space-y-3">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.from === "user" ? "justify-start" : "justify-end"}`}>
                 <p className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-sm leading-6 whitespace-pre-line ${m.from === "user" ? "bg-white/10 border border-white/10 text-white" : "bg-gradient-to-br from-brand-500/20 to-brand-600/10 border border-brand-500/25 text-white"}`}>
